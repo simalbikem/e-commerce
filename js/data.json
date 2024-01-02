@@ -1,0 +1,138 @@
+[
+    {
+        "id": 1,
+        "name": "Kırmızı Fitilli Fermuar Yakalı Kalem Elbise",
+        "price": {
+            "oldPrice": 275.00,
+            "newPrice": 220.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product1/1.png",
+            "thumbs": [
+                "img/products/product1/1.png",
+                "img/products/product1/2.png",
+                "img/products/product1/3.png"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "name": "Turuncu Drapeli Basic Elbise",
+        "price": {
+            "oldPrice": 280.00,
+            "newPrice": 224.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product2/1.png",
+            "thumbs": [
+                "img/products/product2/1.png",
+                "img/products/product2/2.png",
+                "img/products/product2/3.png"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "name": "Sarı Yandan Bağlama Detaylı Şort-Etek Elbise",
+        "price": {
+            "oldPrice": 350.00,
+            "newPrice": 280.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product3/1.png",
+            "thumbs": [
+                "img/products/product3/1.png",
+                "img/products/product3/2.png",
+                "img/products/product3/3.png"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "name": "Yeşil Asimetrik Midi Boy Cuplu Saten Elbise",
+        "price": {
+            "oldPrice": 350.00,
+            "newPrice": 280.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product4/1.png",
+            "thumbs": [
+                "img/products/product4/1.png",
+                "img/products/product4/2.png",
+                "img/products/product4/3.png"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "name": "Mavi Kruvaze Yırtmaçlı Askılı Elbise",
+        "price": {
+            "oldPrice": 375.00,
+            "newPrice": 300.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product5/1.png",
+            "thumbs": [
+                "img/products/product5/1.png",
+                "img/products/product5/2.png",
+                "img/products/product5/3.png"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "name": "Mor Saten V Yaka Belden Oturmalı Elbise",
+        "price": {
+            "oldPrice": 420.00,
+            "newPrice": 336.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product6/1.png",
+            "thumbs": [
+                "img/products/product6/1.png",
+                "img/products/product6/2.png",
+                "img/products/product6/3.png"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "name": "Siyah Simli Tektaş Askılı Elbise",
+        "price": {
+            "oldPrice": 375.00,
+            "newPrice": 300.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product7/1.png",
+            "thumbs": [
+                "img/products/product7/1.png",
+                "img/products/product7/2.png",
+                "img/products/product7/3.png"
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "name": "Beyaz Dantel Detaylı Salaş Elbise",
+        "price": {
+            "oldPrice": 400.00,
+            "newPrice": 320.00
+        },
+        "discount": 20,
+        "img": {
+            "singleImage": "img/products/product8/1.png",
+            "thumbs": [
+                "img/products/product8/1.png",
+                "img/products/product8/2.png",
+                "img/products/product8/3.png"
+            ]
+        }
+    }
+]

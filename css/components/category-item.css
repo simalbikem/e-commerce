@@ -1,0 +1,32 @@
+.categories .category-item {
+    background-color: transparent;
+    border-radius: 10px;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.categories .category-item a {
+    display: inline-block;
+    padding: 10px;
+}
+
+.categories .category-item .category-image {
+    width: 100%;
+    transition: transform ease .2s;
+}
+
+.categories .category-item .category-image:hover {
+    transform: scale(1.1);
+}
+
+/*! category responsive start */
+@media (max-width: 800px) {
+.categories .category-list {
+  display: flex;
+  flex-direction: column;
+}
+}
+  
+/*! category responsive end */
