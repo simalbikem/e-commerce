@@ -69,21 +69,21 @@ function saveCartValues() {
   shippingValue.innerHTML = `${shipping.toFixed(2)}₺`;
   itemsTotal2 = itemsTotal1;
 
-  fastCargo.addEventListener("change", function (e) {
-    if (e.target.checked) {
-      cartTotal.innerHTML = `${(itemsTotal1 + fastCargoPrice).toFixed(2)}₺`;
-    } else {
-      cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
-    }
-  });
-
   shippingValue.addEventListener("change", function (e) {
     if (shipping <= 0) {
       shippingValue.innerHTML = `${shipping1.toFixed(2)}₺`;
       shippingTotal.style.display = "none";
       cartTotal.innerHTML = `${itemsTotal2.toFixed(2)}₺`
     }
-    else {}
+    else {
+      fastCargo.addEventListener("change", function (e) {
+        if (e.target.checked) {
+          cartTotal.innerHTML = `${(itemsTotal1 + fastCargoPrice).toFixed(2)}₺`;
+        } else {
+          cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
+        }
+      });
+    }
   });
 }
 saveCartValues();
