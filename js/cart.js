@@ -46,43 +46,26 @@ function saveCartValues() {
   const subtotal = document.getElementById("subtotal");
   const fastCargo = document.getElementById("fast-cargo");
   const discountValue = document.getElementById("discount-value");
-  const shippingValue = document.getElementById("shipping");
-  const shippingTotal = document.getElementById("shipping-total");
   const fastCargoPrice = 19;
   let itemsTotal = 0;
   let itemsTotal1 = 0;
-  let itemsTotal2 = 0;
   let discountTotal = 0;
-  let shipping = 0;
-  let shipping1 = 0;
 
   cart.length > 0 && cart.forEach((item) => {
     itemsTotal += item.price.oldPrice * item.quantity;
     itemsTotal1 += item.price.newPrice * item.quantity;  
     discountTotal = (itemsTotal - itemsTotal1);
-    shipping = (1000 - itemsTotal1);
   });
 
   subtotal.innerHTML = `${itemsTotal.toFixed(2)}₺`;
   cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
   discountValue.innerHTML = `${discountTotal.toFixed(2)}₺`;
-  shippingValue.innerHTML = `${shipping.toFixed(2)}₺`;
-  itemsTotal2 = itemsTotal1;
 
-  shippingValue.addEventListener("change", function (e) {
-    if (shipping <= 0) {
-      shippingValue.innerHTML = `${shipping1.toFixed(2)}₺`;
-      shippingTotal.style.display = "none";
-      cartTotal.innerHTML = `${itemsTotal2.toFixed(2)}₺`
-    }
-    else {
-      fastCargo.addEventListener("change", function (e) {
-        if (e.target.checked) {
-          cartTotal.innerHTML = `${(itemsTotal1 + fastCargoPrice).toFixed(2)}₺`;
-        } else {
-          cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
-        }
-      });
+  fastCargo.addEventListener("change", function (e) {
+    if (e.target.checked) {
+      cartTotal.innerHTML = `${(itemsTotal1 + fastCargoPrice).toFixed(2)}₺`;
+    } else {
+      cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
     }
   });
 }
