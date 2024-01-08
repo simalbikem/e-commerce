@@ -47,6 +47,7 @@ function saveCartValues() {
   const fastCargo = document.getElementById("fast-cargo");
   const discountValue = document.getElementById("discount-value");
   const shippingValue = document.getElementById("shipping");
+  const shippingTotal = document.getElementById("shipping-total");
   const fastCargoPrice = 19;
   let itemsTotal = 0;
   let itemsTotal1 = 0;
@@ -71,6 +72,14 @@ function saveCartValues() {
     } else {
       cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
     }
+  });
+
+  shippingValue.addEventListener("change", function (e) {
+    if (shipping <= 0) {
+      shippingTotal.style.display = "none";
+      cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`
+    }
+    else {}
   });
 }
 saveCartValues();
