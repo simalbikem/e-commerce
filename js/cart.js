@@ -55,7 +55,7 @@ function saveCartValues(cart) {
   const fastCargoCheckbox = document.getElementById("fast-cargo");
   const discountValue = document.getElementById("discount-value");
   const shippingValue = document.getElementById("shipping");
-  const shippingTotal2 = document.getElementById("shipping-total2");
+  const shippingTotal = document.getElementById("shipping-total");
   const fastCargoPrice = 19;
 
   let itemsTotal = 0;
@@ -79,11 +79,11 @@ function saveCartValues(cart) {
     progressBarTitle1.style.padding = `15px 0px 0px 15px`;
     progressBarTitle1.style.fontSize = `25px`;
     progressBarTitle2.style.display = `none`;
-    shippingTotal2.style.display = `none`;
+    shippingTotal.style.display = `none`;
     
   } 
   else {
-    shippingTotal2.style = `
+    shippingTotal.style = `
       display = inline-block;
       justify-content = space-between;
     `;
