@@ -51,8 +51,10 @@ function saveCartValues() {
   const fastCargoPrice = 19;
   let itemsTotal = 0;
   let itemsTotal1 = 0;
+  let itemsTotal2 = 0;
   let discountTotal = 0;
   let shipping = 0;
+  let shipping1 = 0;
 
   cart.length > 0 && cart.forEach((item) => {
     itemsTotal += item.price.oldPrice * item.quantity;
@@ -65,6 +67,7 @@ function saveCartValues() {
   cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
   discountValue.innerHTML = `${discountTotal.toFixed(2)}₺`;
   shippingValue.innerHTML = `${shipping.toFixed(2)}₺`;
+  itemsTotal2 = itemsTotal1;
 
   fastCargo.addEventListener("change", function (e) {
     if (e.target.checked) {
@@ -76,8 +79,9 @@ function saveCartValues() {
 
   shippingValue.addEventListener("change", function (e) {
     if (shipping <= 0) {
+      shippingValue.innerHTML = `${shipping1.toFixed(2)}₺`;
       shippingTotal.style.display = "none";
-      cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`
+      cartTotal.innerHTML = `${itemsTotal2.toFixed(2)}₺`
     }
     else {}
   });
