@@ -1,72 +1,115 @@
-let cart = localStorage.getItem("cart")
-  ? JSON.parse(localStorage.getItem("cart"))
-  : [];
+function getCartFromLocalStorage() {
+  const cart = localStorage.getItem("cart");
+  return cart ? JSON.parse(cart) : [];
+}
 
-function displayCartProduct() {
+function updateLocalStorage(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function displayCartProduct(cart) {
   const cartWrapper = document.querySelector(".cart-wrapper");
+  const cartItemsCount = document.querySelector(".header-cart-count");
   let result = "";
+
   cart.forEach((item) => {
     result += `
-   <tr class="cart-item">
-    <td class="cart-image">
-        <img src=${item.img.singleImage} alt="">
-        <i class="bi bi-x delete-cart" data-id=${item.id}></i>
-    </td>
-    <td>${item.name}</td>
-    <td>${item.price.oldPrice.toFixed(2)}</td>
-    <td class="product-quantity">${item.quantity}</td>
-    <td class="product-subtotal">
-    ${(item.price.newPrice * item.quantity).toFixed(2)}</td>
-   </tr>
-   `;
+      <tr class="cart-item">
+        <td class="cart-image">
+          <img src=${item.img.singleImage} alt="">
+          <i class="bi bi-x delete-cart" data-id=${item.id}></i>
+        </td>
+        <td>${item.name}</td>
+        <td>${item.price.oldPrice.toFixed(2)}</td>
+        <td class="product-quantity">${item.quantity}</td>
+        <td class="product-subtotal">${(item.price.newPrice * item.quantity).toFixed(2)}</td>
+      </tr>
+    `;
   });
-  cartWrapper.innerHTML = result;
-  removeCartItem();
-}
-displayCartProduct();
 
-function removeCartItem() {
+  cartWrapper.innerHTML = result;
+  cartItemsCount.innerHTML = cart.length.toString();
+  removeCartItem(cart);
+}
+
+function removeCartItem(cart) {
   const btnDeleteCart = document.querySelectorAll(".delete-cart");
-  let cartItems = document.querySelector(".header-cart-count");
 
   btnDeleteCart.forEach((button) => {
     button.addEventListener("click", function (e) {
       const id = e.target.dataset.id;
-      cart = cart.filter((item) => item.id !== Number(id));
-      displayCartProduct();
-      localStorage.setItem("cart", JSON.stringify(cart));
-      cartItems.innerHTML = cart.length;
-      saveCartValues();
+      const updatedCart = cart.filter((item) => item.id !== Number(id));
+      updateLocalStorage(updatedCart);
+      displayCartProduct(updatedCart);
+      saveCartValues(updatedCart);
     });
   });
 }
 
-function saveCartValues() {
+function saveCartValues(cart) {
+  const progressBarTitle3 = document.getElementById("progress-bar-title3");
+  const progressBarTitle1 = document.getElementById("progress-bar-title1");
+  const progressBarTitle2 = document.getElementById("progress-bar-title2");
   const cartTotal = document.getElementById("cart-total");
   const subtotal = document.getElementById("subtotal");
-  const fastCargo = document.getElementById("fast-cargo");
+  const fastCargoCheckbox = document.getElementById("fast-cargo");
   const discountValue = document.getElementById("discount-value");
+  const shippingValue = document.getElementById("shipping");
+  const shippingTotal2 = document.getElementById("shipping-total2");
   const fastCargoPrice = 19;
+
   let itemsTotal = 0;
   let itemsTotal1 = 0;
-  let discountTotal = 0;
 
-  cart.length > 0 && cart.forEach((item) => {
+  cart.forEach((item) => {
     itemsTotal += item.price.oldPrice * item.quantity;
-    itemsTotal1 += item.price.newPrice * item.quantity;  
-    discountTotal = (itemsTotal - itemsTotal1);
+    itemsTotal1 += item.price.newPrice * item.quantity;
   });
+
+  const discountTotal = itemsTotal - itemsTotal1;
+  const shipping = Math.max(1000 - itemsTotal1, 0);
 
   subtotal.innerHTML = `${itemsTotal.toFixed(2)}₺`;
   cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
   discountValue.innerHTML = `${discountTotal.toFixed(2)}₺`;
+  shippingValue.innerHTML = `${shipping.toFixed(2)}₺`;
 
-  fastCargo.addEventListener("change", function (e) {
-    if (e.target.checked) {
-      cartTotal.innerHTML = `${(itemsTotal1 + fastCargoPrice).toFixed(2)}₺`;
-    } else {
-      cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
-    }
-  });
+  if (shipping <= 0) {
+    progressBarTitle1.innerHTML = `ALIŞVERİŞLERİNİZDE KARGO ÜCRETSİZ!`;
+    progressBarTitle1.style.padding = `15px 0px 0px 15px`;
+    progressBarTitle1.style.fontSize = `25px`;
+    progressBarTitle2.style.display = `none`;
+    shippingTotal2.style.display = `none`;
+    
+  } 
+  else {
+    shippingTotal2.style = `
+      display = inline-block;
+      justify-content = space-between;
+    `;
+
+    fastCargoCheckbox.addEventListener("change", function (e) {
+      if (e.target.checked) {
+        cartTotal.innerHTML = `${(itemsTotal1 + fastCargoPrice).toFixed(2)}₺`;
+      } else {
+        cartTotal.innerHTML = `${itemsTotal1.toFixed(2)}₺`;
+      }
+    });
+
+    const progressBarTitle3Content = `
+      <div class="progress-bar-title">
+        <h4>
+          <strong>1.000,00₺</strong> VE ÜZERİ ALIŞVERİŞLERİNİZDE KARGO ÜCRETSİZ!
+        </h4>
+        <p>
+          Sepetinize <span id="shipping">${shipping.toFixed(2)}₺</span>'lik daha ürün ekleyin kargo ücreti ödemeyin.
+        </p>
+      </div>
+    `;
+    progressBarTitle3.innerHTML = progressBarTitle3Content;
+  }
 }
-saveCartValues();
+
+const initialCart = getCartFromLocalStorage();
+displayCartProduct(initialCart);
+saveCartValues(initialCart);

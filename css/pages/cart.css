@@ -198,13 +198,7 @@
   padding: 20px 0 10px 0;
 }
 
-.cart-collaterals table ul {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
-
-.cart-collaterals table ul label {
+.cart-collaterals table label {
   display: flex;
   align-items: center;
   justify-content: flex-end;
