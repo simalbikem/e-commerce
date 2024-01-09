@@ -7,6 +7,12 @@ function updateLocalStorage(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+function changeWidth(itemsTotal1){
+  const progressBar = document.querySelector(".progress-bar");
+  const percentage = (itemsTotal1 / 1000) * 100;
+  progressBar.style.width = `${percentage}%`;
+}
+
 function displayCartProduct(cart) {
   const cartWrapper = document.querySelector(".cart-wrapper");
   const cartItemsCount = document.querySelector(".header-cart-count");
@@ -46,7 +52,9 @@ function removeCartItem(cart) {
   });
 }
 
+
 function saveCartValues(cart) {
+  const progressBar1 = document.querySelector(".progress-bar-1");
   const progressBarTitle3 = document.getElementById("progress-bar-title3");
   const progressBarTitle1 = document.getElementById("progress-bar-title1");
   const progressBarTitle2 = document.getElementById("progress-bar-title2");
@@ -80,9 +88,10 @@ function saveCartValues(cart) {
     progressBarTitle1.style.fontSize = `25px`;
     progressBarTitle2.style.display = `none`;
     shippingTotal.style.display = `none`;
-    
+    progressBar1.style.display = `none`;
   } 
   else {
+    progressBar1.style.display = `block`;
     shippingTotal.style = `
       display = inline-block;
       justify-content = space-between;
