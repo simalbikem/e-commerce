@@ -7,9 +7,9 @@ function updateLocalStorage(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function changeWidth(itemsTotal1){
-  const progressBar = document.querySelector(".progress-bar");
-  const percentage = (itemsTotal1 / 1000) * 100;
+function changeWidth() {
+  const progressBar = document.querySelector(".progress-bar-1 .progress-bar");
+  const percentage = itemsTotal1 / 10; 
   progressBar.style.width = `${percentage}%`;
 }
 
@@ -68,6 +68,7 @@ function saveCartValues(cart) {
 
   let itemsTotal = 0;
   let itemsTotal1 = 0;
+  let Bar2 = 0;
 
   cart.forEach((item) => {
     itemsTotal += item.price.oldPrice * item.quantity;

@@ -55,7 +55,6 @@
   height: 6px;
   background-color: #dee0ea;
   border-radius: 10px;
-  z-index: -1;
 }
 
 .cart-page .progress-bar-1 .progress-bar {
@@ -73,7 +72,6 @@
   height: 100%;
   width: 0;
   transition: 1s ease .3s;
-  z-index: 1;
 }
 /** progress end */
 
