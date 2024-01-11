@@ -1,6 +1,7 @@
+let selectedStars = 0;
+
 const commentReviewsFunc = function () {
   const commentStarsDOM = document.querySelectorAll(".comment-form-rating .star");
-  let selectedStars = 0;
 
   commentStarsDOM.forEach((item, index) => {
     item.addEventListener("click", (e) => {
@@ -19,7 +20,6 @@ const addNewCommentFunc = () => {
   let commentListDOM = document.querySelector(".comment-list");
   let commentText = "";
   let commentName = "";
-  let selectedStars = 0;
 
   commentTextDOM.addEventListener("input", function (e) {
     commentText = e.target.value;
@@ -67,8 +67,8 @@ const addNewCommentFunc = () => {
     commentListDOM.innerHTML = result;
     commentTextDOM.value = "";
     commentNameDOM.value = "";
-    selectedStars = 0;
 
+    selectedStars = 0;
     const commentStarsDOM = document.querySelectorAll(".comment-form-rating .star");
     commentStarsDOM.forEach((star) => star.classList.remove("active"));
   }
