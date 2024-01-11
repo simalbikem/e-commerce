@@ -40,27 +40,31 @@ const addNewCommentFunc = () => {
       day: "numeric",
     });
     comments.forEach((item) => {
-      const stars = Array.from({ length: item.stars }, (_, index) => `
+      const filledStars = Array.from({ length: item.stars }, (_, index) => `
         <li>
             <i class="bi bi-star-fill"></i>
+        </li>`).join('');
+      const emptyStars = Array.from({ length: 5 - item.stars }, (_, index) => `
+        <li>
+            <i class="bi bi-star"></i>
         </li>`).join('');
 
       result += `
         <li class="comment-item">
-            <div class="comment-avatar">
-                <img src="img/avatars/avatar3.jpg" alt="">
-            </div>
-            <div class="comment-text">
-                <ul class="comment-star">${stars}</ul>
-                <div class="comment-meta">
-                    <strong>${item.author}</strong>
-                    <span>-</span>
-                    <time>${formattedDate}</time>
-                </div>
-                <div class="comment-description">
-                    <p>${item.text}</p>
-                </div>
-            </div>
+          <div class="comment-avatar">
+              <img src="img/avatars/avatar3.jpg" alt="">
+          </div>
+          <div class="comment-text">
+              <ul class="comment-star">${filledStars}${emptyStars}</ul>
+              <div class="comment-meta">
+                  <strong>${item.author}</strong>
+                  <span>-</span>
+                  <time>${formattedDate}</time>
+              </div>
+              <div class="comment-description">
+                  <p>${item.text}</p>
+              </div>
+          </div>
         </li>
       `;
     });
