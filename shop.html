@@ -13,7 +13,93 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
 
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      initializeParticles();
+
+      window.addEventListener('resize', function(){
+        particlesJS('snow', 'destroy');
+        initializeParticles();
+      });
+    });
+
+    function initializeParticles() {
+      particlesJS("snow", {
+        "particles": {
+          "number": {
+            "value": 200,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "opacity": {
+            "value": 0.7,
+            "random": false,
+            "anim": {
+              "enable": false
+            }
+          },
+          "size": {
+            "value": calculateParticleSize(),
+            "random": true,
+            "anim": {
+              "enable": false
+            }
+          },
+          "line_linked": {
+            "enable": false
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "bottom",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": true,
+              "rotateX": 300,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "events": {
+            "onhover": {
+                "enable": false
+            },
+            "onclick": {
+                "enable": false
+            },
+            "resize": false
+          }
+        },
+        "retina_detect": true
+      });
+    }
+
+    function calculateParticleSize() {
+      var windowWidth = window.innerWidth;
+      if (windowWidth > 992) {
+          return 4;
+      } else if (windowWidth > 768) {
+          return 3;
+      } else if (windowWidth > 576) {
+          return 2;
+      } else {
+          return 1;
+      }
+    }
+  </script>
+
   <body>
+    <div id="snow"></div>
     <!--! header start -->
     <header>
       <div class="global-notification">

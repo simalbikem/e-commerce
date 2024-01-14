@@ -118,11 +118,20 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
   height: 576px;
 }
-
 /** base end */
 
-/*!  base responsive start */
+/*** snow ***/
+#snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
 
+/*!  base responsive start */
 @media (max-width: 1200px) {
   .container {
     max-width: 992px;
