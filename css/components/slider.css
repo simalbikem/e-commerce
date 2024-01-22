@@ -11,6 +11,7 @@
 .slider .slider-image-a img {
   position: relative;
   z-index: -1;
+  height: 100%;
 }
 
 .slider-item .slider-image img {
@@ -23,7 +24,7 @@
 
 .slider .slider-clickables,
 .slider .slider-clickables-2 {
-  height: 776.25px;
+  height: 776px;
   width: 100%;
 }
 
@@ -62,45 +63,75 @@
   opacity: 1;
 }
 
-
-@media (max-width: 768px) {
-  .slider-item{
-    height: calc(100vh - 155px);
-  }
-}
-
 @media (max-width: 1200px) {
   .slider .slider-clickables,
   .slider .slider-clickables-2 {
-    height: 627.4px;
-    width: 100%;
-  }
-}
-@media (max-width: 992px) {
-  .slider .slider-clickables,
-  .slider .slider-clickables-2 {
-    height: 518.7px;
-    width: 100%;
-  }
-}@media (max-width: 768px) {
-  .slider .slider-clickables,
-  .slider .slider-clickables-2 {
-    height: 401.6px;
-    width: 100%;
-  }
-}
-@media (max-width: 576px) {
-  .slider .slider-clickables,
-  .slider .slider-clickables-2 {
-    height: 301.2px;
-    width: 100%;
+    height: 675px;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 1100px) {
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 619px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .slider .slider-dots {
+    display: none;
+  }
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 562px;
+  }
+}
+
+@media (max-width: 900px) {
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 506px;
+  }
+}
+
+@media (max-width: 800px) {
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 450px;
+  }
+}
+
+@media (max-width: 700px) {
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 394px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 337px;
+  }
+}
+
+@media (max-width: 500px) {
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 281px;
+  }
+}
+
+@media (max-width: 400px) {
+  .slider .slider-clickables,
+  .slider .slider-clickables-2 {
+    height: 225px;
+  }
+}
+
+@media (max-width: 390.4px) {
   .slider .slider-clickables,
   .slider .slider-clickables-2 {
     height: 219.6px;
-    width: 100%;
   }
 }

@@ -264,7 +264,15 @@ header .menu-dropdown-content a:hover {
     display: none !important;
   }
 
-  header .menu-list i {
+  .header-right .header-right-links {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+
+  header .menu-list i,
+  .header-right .bi-person-heart,
+  .header-right .bi-instagram {
     display: none;
   }
 
