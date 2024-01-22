@@ -166,7 +166,7 @@
   .modal-search .modal-wrapper {
     margin: 0 20px;
     max-width: 400px;
-    height: 700px !important;
+    height: 650px !important;
   }
 
   .modal-search .search-info p{
@@ -177,6 +177,13 @@
     grid-template-columns: 1fr;
     display: flex;
     flex-direction: column;
+  }
+
+  .modal-search .results a:nth-child(5),
+  .modal-search .results a:nth-child(6),
+  .modal-search .results a:nth-child(7), 
+  .modal-search .results a:nth-child(8) {
+    display: none;
   }
 }
 
